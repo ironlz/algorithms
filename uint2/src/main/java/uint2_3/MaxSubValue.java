@@ -22,8 +22,8 @@ public class MaxSubValue {
         return doGetMaxSubValueNlogN(array, 0 ,array.length - 1);
     }
     private static int doGetMaxSubValueNlogN(int[] array, int start, int end){
-        if(end - start == 1){
-            return Integer.max(array[start], array[end]);
+        if(end == start){
+            return array[start];
         }
         int nMiddle = (start + end) / 2;
         int leftValue = doGetMaxSubValueNlogN(array, start, nMiddle);
@@ -53,8 +53,8 @@ public class MaxSubValue {
             middleValue += middleTemp;
         }
 
-        int maxValue = Integer.max(leftValue, righValue);
-        maxValue = Integer.max(maxValue, middleValue);
+        int maxValue = Math.max(leftValue, righValue);
+        maxValue = Math.max(maxValue, middleValue);
 
         return maxValue;
     }
